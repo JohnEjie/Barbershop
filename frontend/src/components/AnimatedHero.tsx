@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Scissors, Instagram, Twitter, Facebook } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -190,7 +190,7 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
               <motion.span animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity }}>
                 Gupit Pogi
               </motion.span>
-              {' • '}
+              {' â€¢ '}
               <motion.span animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 2, repeat: Infinity }}>
                 Gupit Matapang
               </motion.span>
@@ -253,3 +253,7 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
     </div>
   );
 }
+
+
+
+

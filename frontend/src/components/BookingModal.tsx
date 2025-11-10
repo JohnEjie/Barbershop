@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import {
   api,
   type Barber,
@@ -19,7 +19,7 @@ export function BookingModal({ onClose, onSuccess }: Props) {
   const [notes, setNotes] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // ✅ Fetch barbers on mount
+  // âœ… Fetch barbers on mount
   useEffect(() => {
     api
       .getBarbers()
@@ -30,7 +30,7 @@ export function BookingModal({ onClose, onSuccess }: Props) {
       .catch(() => toast.error("Failed to load barbers"));
   }, []);
 
-  // ✅ Handle appointment submission
+  // âœ… Handle appointment submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!barberId || !date) {
@@ -58,7 +58,7 @@ export function BookingModal({ onClose, onSuccess }: Props) {
     }
   };
 
-  // ✅ Handle manual redirect
+  // âœ… Handle manual redirect
   const handleGoHome = () => {
     window.location.href = "/";
   };
@@ -147,3 +147,7 @@ export function BookingModal({ onClose, onSuccess }: Props) {
     </div>
   );
 }
+
+
+
+

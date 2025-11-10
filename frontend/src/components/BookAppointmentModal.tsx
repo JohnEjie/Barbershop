@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { api, type Barber } from "../services/api";
 import { toast } from "sonner";
@@ -124,3 +124,7 @@ export function BookAppointmentModal({
     </div>
   );
 }
+
+
+
+

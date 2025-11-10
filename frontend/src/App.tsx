@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Toaster } from 'sonner';
 import { AuthModal } from './components/AuthModal';
 import { AnimatedHero } from './components/AnimatedHero';
@@ -16,7 +16,7 @@ export default function App() {
   const [user, setUser] = useState<User | null>(null);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [showLanding, setShowLanding] = useState(false); // 👈 Add this state
+  const [showLanding, setShowLanding] = useState(false); // ðŸ‘ˆ Add this state
 
   useEffect(() => {
     checkAuth();
@@ -43,7 +43,7 @@ export default function App() {
   };
 
   const handleGoHome = () => {
-    // 👇 Instead of logging out, show landing page but keep user
+    // ðŸ‘‡ Instead of logging out, show landing page but keep user
     setShowLanding(true);
   };
 
@@ -58,7 +58,7 @@ export default function App() {
     );
   }
 
-  // 👇 If user clicked "Home", show landing page
+  // ðŸ‘‡ If user clicked "Home", show landing page
   if (showLanding) {
     return (
       <div className="min-h-screen bg-black">
@@ -67,7 +67,7 @@ export default function App() {
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <h1 className="text-2xl font-bold text-amber-500">Barbershop</h1>
             <button
-              onClick={() => setShowLanding(false)} // 👈 go back to dashboard
+              onClick={() => setShowLanding(false)} // ðŸ‘ˆ go back to dashboard
               className="px-6 py-2 bg-amber-500 hover:bg-amber-600 text-black font-semibold rounded-lg transition-colors"
             >
               Back to Dashboard
@@ -98,7 +98,7 @@ export default function App() {
     );
   }
 
-  // 👇 If user is logged in and not viewing landing, show dashboard
+  // ðŸ‘‡ If user is logged in and not viewing landing, show dashboard
   if (user) {
     return (
       <div className="min-h-screen bg-black">
@@ -115,7 +115,7 @@ export default function App() {
                 <span className="text-amber-500 text-sm">({user.role})</span>
               </div>
 
-              {/* ✅ Home Button */}
+              {/* âœ… Home Button */}
               <button
                 onClick={handleGoHome}
                 className="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-black rounded-lg transition-colors"
@@ -149,7 +149,7 @@ export default function App() {
     );
   }
 
-  // 👇 Default landing page (when no user)
+  // ðŸ‘‡ Default landing page (when no user)
   return (
     <div className="min-h-screen bg-black">
       <Toaster position="top-right" />
@@ -185,3 +185,7 @@ export default function App() {
     </div>
   );
 }
+
+
+
+

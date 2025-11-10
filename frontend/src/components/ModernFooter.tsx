@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock, Instagram, Twitter, Facebook, Scissors } from 'lucide-react';
+﻿import { MapPin, Phone, Mail, Clock, Instagram, Twitter, Facebook, Scissors } from 'lucide-react';
 
 export function ModernFooter() {
   return (
@@ -82,3 +82,7 @@ export function ModernFooter() {
     </footer>
   );
 }
+
+
+
+

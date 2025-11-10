@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, User, Lock, Mail, Phone } from 'lucide-react';
 import { Input } from './ui/input';
@@ -34,7 +34,7 @@ export function AuthModal({ onClose, onSuccess }: AuthModalProps) {
         password: formData.password,
       });
       
-      toast.success('Welcome back! 🎉');
+      toast.success('Welcome back! ðŸŽ‰');
       onSuccess(user);
       onClose();
     } catch (error: any) {
@@ -57,7 +57,7 @@ export function AuthModal({ onClose, onSuccess }: AuthModalProps) {
     try {
       const { user } = await api.signup(formData);
       
-      toast.success('Account created successfully! 🎉');
+      toast.success('Account created successfully! ðŸŽ‰');
       onSuccess(user);
       onClose();
     } catch (error: any) {
@@ -232,3 +232,7 @@ export function AuthModal({ onClose, onSuccess }: AuthModalProps) {
     </AnimatePresence>
   );
 }
+
+
+
+

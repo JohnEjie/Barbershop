@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Calendar, Clock, User, FileText, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 import { type Appointment, type User as UserType } from '../services/api';
 import { formatDate } from '../utils/date';
@@ -118,3 +118,7 @@ export function AppointmentCard({ appointment, currentUser, onStatusChange }: Ap
     </motion.div>
   );
 }
+
+
+
+

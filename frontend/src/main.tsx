@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+﻿import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./styles/globals.css";
@@ -34,7 +34,7 @@ function init() {
       const root = createRoot(rootElement);
       root.render(
         <StrictMode>
-          {/* ✅ React Router added here */}
+          {/* âœ… React Router added here */}
           <BrowserRouter>
             <App />
           </BrowserRouter>
@@ -65,3 +65,7 @@ function init() {
     }
   }
 }
+
+
+
+

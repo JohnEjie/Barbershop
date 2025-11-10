@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { X, ZoomIn } from 'lucide-react';
@@ -238,3 +238,7 @@ export function WorkGallery() {
     </section>
   );
 }
+
+
+
+

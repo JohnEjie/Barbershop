@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { Scissors, Sparkles, Droplet, Crown } from 'lucide-react';
@@ -7,7 +7,7 @@ const services = [
   {
     icon: Scissors,
     title: 'GUPIT POGI',
-    price: '₱200',
+    price: 'â‚±200',
     description: 'Classic cuts and trendy fades',
     features: ['Standard Cuts', 'Fades & Undercuts', 'Hair Designs', 'Long Hair Maintenance'],
     popular: true,
@@ -15,21 +15,21 @@ const services = [
   {
     icon: Sparkles,
     title: 'HAIR COLORING',
-    price: '₱500',
+    price: 'â‚±500',
     description: 'Full color and gray blending',
     features: ['Full Hair Coloring', 'Gray Blending', 'Root Touch-ups', 'Bleaching'],
   },
   {
     icon: Droplet,
     title: 'BEARD GROOMING & SHAVE',
-    price: '₱150',
+    price: 'â‚±150',
     description: 'Facial hair styling and care',
     features: ['Beard Shaping', 'Hot Towel Treatment', 'Conditioning', 'Oil Application'],
   },
   {
     icon: Crown,
     title: 'FULL PACKAGE',
-    price: '₱800',
+    price: 'â‚±800',
     description: 'Complete grooming experience',
     features: ['Haircut + Beard', 'Hair Coloring', 'Face Mask', 'Head Massage'],
   },
@@ -299,3 +299,7 @@ export function ModernServices() {
     </section>
   );
 }
+
+
+
+

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Clock, User as UserIcon, } from "lucide-react";
 import { api, type User, type Appointment } from "../services/api";
@@ -177,3 +177,7 @@ export function CustomerDashboard({ user,}: CustomerDashboardProps) {
     </div>
   );
 }
+
+
+
+

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { Check, Sparkles } from 'lucide-react';
 
@@ -161,12 +161,12 @@ function PriceCard({ pkg, index, onBookClick }: { pkg: typeof packages[0]; index
         </motion.h3>
 
         <div className="flex items-baseline justify-center gap-1 relative">
-          {/* ✅ Changed $ to ₱ */}
+          {/* âœ… Changed $ to â‚± */}
           <motion.span
             className="text-xl text-neutral-400"
             animate={isHovered ? { y: -5 } : { y: 0 }}
           >
-            ₱
+            â‚±
           </motion.span>
           <motion.span
             className="text-6xl relative"
@@ -387,3 +387,7 @@ export function PriceCards({ onBookClick }: PriceCardsProps) {
     </section>
   );
 }
+
+
+
+
