@@ -1,0 +1,131 @@
+import { useState } from 'react';
+import { motion } from 'motion/react';
+import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+const transformations = [
+  {
+    before: 'https://images.unsplash.com/photo-1590503347339-ccd768ad83d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMGhhaXJjdXQlMjB0cmFuc2Zvcm1hdGlvbnxlbnwxfHx8fDE3NjI1MjA3MDd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    after: 'https://images.unsplash.com/photo-1593702233354-259d1f794ed1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXJiZXJzaG9wJTIwZmFkZSUyMGhhaXJjdXR8ZW58MXx8fHwxNzYyNDYzMTA4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    title: 'Fresh Fade',
+  },
+  {
+    before: 'https://images.unsplash.com/photo-1638383257977-e575d80a2121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXJiZXJzaG9wJTIwdXJiYW4lMjBzdHlsZXxlbnwxfHx8fDE3NjI1MjA3MDd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    after: 'https://images.unsplash.com/photo-1547648946-2b1fd7eab923?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXJiZXIlMjBjdXR0aW5nJTIwaGFpcnxlbnwxfHx8fDE3NjI0MzUzNzl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    title: 'Classic Cut',
+  },
+];
+
+export function BeforeAfter() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [sliderPosition, setSliderPosition] = useState(50);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % transformations.length);
+    setSliderPosition(50);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + transformations.length) % transformations.length);
+    setSliderPosition(50);
+  };
+
+  const current = transformations[currentIndex];
+
+  return (
+    <section className="py-24 px-6 md:px-12 bg-black">
+      <motion.div
+        className="max-w-6xl mx-auto"
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="text-center mb-16">
+          <motion.h2 
+            className="text-5xl md:text-7xl mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            TRANSFORMATIONS
+          </motion.h2>
+          <motion.div 
+            className="h-1 w-24 bg-gradient-to-r from-amber-500 to-yellow-500 mx-auto"
+            initial={{ width: 0 }}
+            whileInView={{ width: 96 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          />
+        </div>
+
+        <div className="relative aspect-[16/10] rounded-lg overflow-hidden">
+          {/* After Image */}
+          <ImageWithFallback
+            src={current.after}
+            alt="After"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          
+          {/* Before Image with Clip */}
+          <div 
+            className="absolute inset-0 overflow-hidden"
+            style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+          >
+            <ImageWithFallback
+              src={current.before}
+              alt="Before"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Slider */}
+          <div 
+            className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-10"
+            style={{ left: `${sliderPosition}%` }}
+          >
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
+              <ChevronLeft className="w-4 h-4 text-black absolute left-1" />
+              <ChevronRight className="w-4 h-4 text-black absolute right-1" />
+            </div>
+          </div>
+
+          {/* Labels */}
+          <div className="absolute top-6 left-6 bg-black/70 px-4 py-2 rounded">
+            <span className="text-sm uppercase tracking-wider">Before</span>
+          </div>
+          <div className="absolute top-6 right-6 bg-black/70 px-4 py-2 rounded">
+            <span className="text-sm uppercase tracking-wider">After</span>
+          </div>
+
+          {/* Interactive Slider Input */}
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={sliderPosition}
+            onChange={(e) => setSliderPosition(Number(e.target.value))}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
+          />
+        </div>
+
+        {/* Navigation */}
+        <div className="flex items-center justify-center gap-4 mt-8">
+          <button
+            onClick={handlePrev}
+            className="w-12 h-12 border border-white/30 hover:border-amber-500 rounded-full flex items-center justify-center transition-colors"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <span className="text-sm uppercase tracking-wider">{current.title}</span>
+          <button
+            onClick={handleNext}
+            className="w-12 h-12 border border-white/30 hover:border-amber-500 rounded-full flex items-center justify-center transition-colors"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
