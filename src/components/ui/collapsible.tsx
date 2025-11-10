@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
+=======
+"use client";
+
+import * as CollapsiblePrimitive from "@radix-ui/react-collapsible@1.1.3";
+>>>>>>> origin/main
 
 function Collapsible({
   ...props
@@ -31,7 +37,10 @@ function CollapsibleContent({
 }
 
 export { Collapsible, CollapsibleTrigger, CollapsibleContent };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

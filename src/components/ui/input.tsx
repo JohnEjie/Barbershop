@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿import * as React from "react";
+=======
+import * as React from "react";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 
@@ -19,7 +23,10 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
 }
 
 export { Input };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

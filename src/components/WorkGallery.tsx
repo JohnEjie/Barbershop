@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 ﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+=======
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+>>>>>>> origin/main
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { X, ZoomIn } from 'lucide-react';
 
 const gallery = [
   {
+<<<<<<< HEAD
     url: '/images/gallery/kitz.jpg',
     alt: 'Barber tools',
   },
@@ -27,6 +33,30 @@ const gallery = [
   {
     url: '/images/gallery/rey.jpg',
     alt: 'Barber tools',
+=======
+    url: 'https://images.unsplash.com/photo-1759134198561-e2041049419c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXJiZXIlMjBjbGlwcGVycyUyMG1vZGVybnxlbnwxfHx8fDE3NjI1MjA3MDd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    alt: 'Barber tools',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1547648946-2b1fd7eab923?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXJiZXIlMjBjdXR0aW5nJTIwaGFpcnxlbnwxfHx8fDE3NjI0MzUzNzl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    alt: 'Haircut in progress',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1593702233354-259d1f794ed1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXJiZXJzaG9wJTIwZmFkZSUyMGhhaXJjdXR8ZW58MXx8fHwxNzYyNDYzMTA4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    alt: 'Fresh fade',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1638383257977-e575d80a2121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXJiZXJzaG9wJTIwdXJiYW4lMjBzdHlsZXxlbnwxfHx8fDE3NjI1MjA3MDd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    alt: 'Urban style',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1654097801176-cb1795fd0c5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZW4lMjBoYWlyY3V0JTIwc2Fsb258ZW58MXx8fHwxNzYyNTE5ODg4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    alt: 'Salon work',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1732314287829-f1da598a5b77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBiYXJiZXJ8ZW58MXx8fHwxNzYyNDY4NjMyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    alt: 'Professional barber',
+>>>>>>> origin/main
   },
 ];
 
@@ -238,7 +268,10 @@ export function WorkGallery() {
     </section>
   );
 }
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

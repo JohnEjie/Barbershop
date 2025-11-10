@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
+=======
+"use client";
+
+import * as React from "react";
+import * as LabelPrimitive from "@radix-ui/react-label@2.1.2";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 
@@ -22,7 +29,10 @@ function Label({
 }
 
 export { Label };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

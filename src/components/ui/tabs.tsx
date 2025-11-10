@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
+=======
+"use client";
+
+import * as React from "react";
+import * as TabsPrimitive from "@radix-ui/react-tabs@1.1.3";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 
@@ -64,7 +71,10 @@ function TabsContent({
 }
 
 export { Tabs, TabsList, TabsTrigger, TabsContent };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

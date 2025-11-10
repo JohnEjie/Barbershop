@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
+=======
+"use client";
+
+import * as React from "react";
+import * as AvatarPrimitive from "@radix-ui/react-avatar@1.1.3";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 
@@ -51,7 +58,10 @@ function AvatarFallback({
 }
 
 export { Avatar, AvatarImage, AvatarFallback };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

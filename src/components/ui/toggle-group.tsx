@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as React from "react";
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 import { type VariantProps } from "class-variance-authority";
+=======
+"use client";
+
+import * as React from "react";
+import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group@1.1.2";
+import { type VariantProps } from "class-variance-authority@0.7.1";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 import { toggleVariants } from "./toggle";
@@ -71,7 +79,10 @@ function ToggleGroupItem({
 }
 
 export { ToggleGroup, ToggleGroupItem };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

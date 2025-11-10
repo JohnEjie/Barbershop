@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 ﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, User, Lock, Mail, Phone } from 'lucide-react';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { toast } from 'sonner';
+=======
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { X, User, Lock, Mail, Phone } from 'lucide-react';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
+import { toast } from 'sonner@2.0.3';
+>>>>>>> origin/main
 import { api, type User as UserType } from '../services/api';
 
 interface AuthModalProps {
@@ -34,7 +43,11 @@ export function AuthModal({ onClose, onSuccess }: AuthModalProps) {
         password: formData.password,
       });
       
+<<<<<<< HEAD
       toast.success('Welcome back! ðŸŽ‰');
+=======
+      toast.success('Welcome back! 🎉');
+>>>>>>> origin/main
       onSuccess(user);
       onClose();
     } catch (error: any) {
@@ -57,7 +70,11 @@ export function AuthModal({ onClose, onSuccess }: AuthModalProps) {
     try {
       const { user } = await api.signup(formData);
       
+<<<<<<< HEAD
       toast.success('Account created successfully! ðŸŽ‰');
+=======
+      toast.success('Account created successfully! 🎉');
+>>>>>>> origin/main
       onSuccess(user);
       onClose();
     } catch (error: any) {
@@ -161,7 +178,11 @@ export function AuthModal({ onClose, onSuccess }: AuthModalProps) {
                 <div>
                   <Label htmlFor="phone" className="flex items-center gap-2 mb-2 text-neutral-300">
                     <Phone className="w-4 h-4" />
+<<<<<<< HEAD
                     Phone Number 
+=======
+                    Phone Number (Optional)
+>>>>>>> origin/main
                   </Label>
                   <Input
                     id="phone"
@@ -232,7 +253,10 @@ export function AuthModal({ onClose, onSuccess }: AuthModalProps) {
     </AnimatePresence>
   );
 }
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

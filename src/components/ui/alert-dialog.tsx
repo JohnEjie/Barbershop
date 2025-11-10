@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as React from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
+=======
+"use client";
+
+import * as React from "react";
+import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog@1.1.6";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 import { buttonVariants } from "./button";
@@ -155,7 +162,10 @@ export {
   AlertDialogAction,
   AlertDialogCancel,
 };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as React from "react";
 import * as SwitchPrimitive from "@radix-ui/react-switch";
+=======
+"use client";
+
+import * as React from "react";
+import * as SwitchPrimitive from "@radix-ui/react-switch@1.1.3";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 
@@ -29,7 +36,10 @@ function Switch({
 }
 
 export { Switch };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

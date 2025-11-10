@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
+=======
+"use client";
+
+import * as React from "react";
+import { Drawer as DrawerPrimitive } from "vaul@1.1.2";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 
@@ -130,7 +137,10 @@ export {
   DrawerTitle,
   DrawerDescription,
 };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as React from "react";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
+=======
+"use client";
+
+import * as React from "react";
+import * as SeparatorPrimitive from "@radix-ui/react-separator@1.1.2";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 
@@ -26,7 +33,10 @@ function Separator({
 }
 
 export { Separator };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

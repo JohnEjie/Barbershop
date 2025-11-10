@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 ﻿import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, Users, LogOut, TrendingUp } from 'lucide-react';
 import { api, type User, type Appointment } from '../services/api';
 import { AppointmentCard } from './AppointmentCard';
 import { toast } from 'sonner';
+=======
+import { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
+import { Calendar, Clock, Users, LogOut, TrendingUp } from 'lucide-react';
+import { api, type User, type Appointment } from '../services/api';
+import { AppointmentCard } from './AppointmentCard';
+import { toast } from 'sonner@2.0.3';
+>>>>>>> origin/main
 
 interface BarberDashboardProps {
   user: User;
@@ -187,7 +196,10 @@ export function BarberDashboard({ user, onLogout }: BarberDashboardProps) {
     </div>
   );
 }
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 ﻿"use client";
+=======
+"use client";
+>>>>>>> origin/main
 
 import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
+<<<<<<< HEAD
 } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+=======
+} from "embla-carousel-react@8.6.0";
+import { ArrowLeft, ArrowRight } from "lucide-react@0.487.0";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 import { Button } from "./button";
@@ -239,7 +248,10 @@ export {
   CarouselPrevious,
   CarouselNext,
 };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

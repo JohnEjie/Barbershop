@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 ﻿import * as React from "react";
+=======
+import * as React from "react";
+>>>>>>> origin/main
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   MoreHorizontalIcon,
+<<<<<<< HEAD
 } from "lucide-react";
+=======
+} from "lucide-react@0.487.0";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 import { Button, buttonVariants } from "./button";
@@ -125,7 +133,10 @@ export {
   PaginationNext,
   PaginationEllipsis,
 };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

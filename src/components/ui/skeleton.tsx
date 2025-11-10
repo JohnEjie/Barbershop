@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿import { cn } from "./utils";
+=======
+import { cn } from "./utils";
+>>>>>>> origin/main
 
 function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -11,7 +15,10 @@ function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 export { Skeleton };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

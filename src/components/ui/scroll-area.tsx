@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as React from "react";
 import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
+=======
+"use client";
+
+import * as React from "react";
+import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area@1.2.3";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 
@@ -56,7 +63,10 @@ function ScrollBar({
 }
 
 export { ScrollArea, ScrollBar };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

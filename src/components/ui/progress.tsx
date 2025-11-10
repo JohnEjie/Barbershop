@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as React from "react";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
+=======
+"use client";
+
+import * as React from "react";
+import * as ProgressPrimitive from "@radix-ui/react-progress@1.1.2";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 
@@ -29,7 +36,10 @@ function Progress({
 }
 
 export { Progress };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

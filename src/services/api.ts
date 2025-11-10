@@ -1,7 +1,19 @@
+<<<<<<< HEAD
 // API Configuration
 const API_BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_URL) 
   ? import.meta.env.VITE_API_URL 
   : 'http://localhost:8000/api';
+=======
+/✅ API Configuration
+const API_BASE_URL =
+  typeof import.meta !== "undefined" &&
+  typeof (import.meta as any).env !== "undefined" &&
+  (import.meta as any).env.VITE_API_URL
+    ? (import.meta as any).env.VITE_API_URL
+    : "http://localhost:8000/api";
+
+console.log("✅ API Base URL:", API_BASE_URL);
+>>>>>>> origin/main
 
 // Types matching Django backend
 export interface User {
@@ -14,12 +26,19 @@ export interface User {
   phone_number?: string;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 export interface Barber {
   id: number;
   user: User;
   bio: string;
+<<<<<<< HEAD
   experience_years: number;
+=======
+  experience: number;
+>>>>>>> origin/main
   specialization: string;
   pending_appointments_list: string;
 }
@@ -29,9 +48,15 @@ export interface Appointment {
   customer: User;
   barber: Barber;
   appointment_date: string;
+<<<<<<< HEAD
   created_at: string;
   status: 'pending' | 'completed' | 'cancelled';
   notes: string;
+=======
+  status: 'pending' | 'completed' | 'cancelled';
+  notes: string;
+  created_at: string;
+>>>>>>> origin/main
 }
 
 export interface CreateAppointmentData {
@@ -60,10 +85,16 @@ class ApiService {
   private token: string | null = null;
 
   constructor() {
+<<<<<<< HEAD
     // Load token from localStorage on initialization
     this.token = localStorage.getItem('authToken');
   }
 
+=======
+    this.token = localStorage.getItem('authToken');
+  }
+  
+>>>>>>> origin/main
   private getHeaders(): HeadersInit {
     const headers: HeadersInit = {
       'Content-Type': 'application/json',
@@ -71,6 +102,10 @@ class ApiService {
     
     if (this.token) {
       headers['Authorization'] = `Token ${this.token}`;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
     }
     
     return headers;

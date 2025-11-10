@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as React from "react";
 import * as SliderPrimitive from "@radix-ui/react-slider";
+=======
+"use client";
+
+import * as React from "react";
+import * as SliderPrimitive from "@radix-ui/react-slider@1.2.3";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 
@@ -61,7 +68,10 @@ function Slider({
 }
 
 export { Slider };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

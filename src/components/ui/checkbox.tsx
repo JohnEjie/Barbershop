@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 ﻿"use client";
 
 import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { CheckIcon } from "lucide-react";
+=======
+"use client";
+
+import * as React from "react";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox@1.1.4";
+import { CheckIcon } from "lucide-react@0.487.0";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 
@@ -30,7 +38,10 @@ function Checkbox({
 }
 
 export { Checkbox };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

@@ -1,11 +1,17 @@
+<<<<<<< HEAD
 ﻿import { useState } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import type { Variants } from 'framer-motion';
+=======
+import { useState } from 'react';
+import { motion, useMotionValue, useTransform } from 'motion/react';
+>>>>>>> origin/main
 import { Scissors, Sparkles, Droplet, Crown } from 'lucide-react';
 
 const services = [
   {
     icon: Scissors,
+<<<<<<< HEAD
     title: 'GUPIT POGI',
     price: '₱200',
     description: 'Classic cuts and trendy fades',
@@ -36,6 +42,38 @@ const services = [
 ];
 
 const container: Variants = {
+=======
+    title: 'SIGNATURE CUT',
+    price: '$45',
+    description: 'Precision cut with consultation',
+    features: ['Wash & Style', 'Hot Towel', 'Beverage'],
+  },
+  {
+    icon: Sparkles,
+    title: 'FADE SPECIALIST',
+    price: '$55',
+    description: 'Expert fade techniques',
+    features: ['Any Fade Type', 'Razor Line-up', 'Styling Products'],
+    popular: true,
+  },
+  {
+    icon: Droplet,
+    title: 'BEARD SCULPT',
+    price: '$35',
+    description: 'Professional beard grooming',
+    features: ['Hot Towel Prep', 'Precision Trim', 'Oil Treatment'],
+  },
+  {
+    icon: Crown,
+    title: 'ROYAL PACKAGE',
+    price: '$95',
+    description: 'Complete grooming experience',
+    features: ['Cut + Beard', 'Face Mask', 'Head Massage'],
+  },
+];
+
+const container = {
+>>>>>>> origin/main
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -45,7 +83,11 @@ const container: Variants = {
   }
 };
 
+<<<<<<< HEAD
 const item: Variants = {
+=======
+const item = {
+>>>>>>> origin/main
   hidden: { opacity: 0, y: 50, rotateX: -45 },
   show: { 
     opacity: 1, 
@@ -59,7 +101,11 @@ const item: Variants = {
   }
 };
 
+<<<<<<< HEAD
 function ServiceCard({ service }: { service: typeof services[0] }) {
+=======
+function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+>>>>>>> origin/main
   const [isHovered, setIsHovered] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -212,6 +258,7 @@ function ServiceCard({ service }: { service: typeof services[0] }) {
 
 export function ModernServices() {
   return (
+<<<<<<< HEAD
     <section 
       className="py-24 px-6 md:px-12 relative overflow-hidden"
       style={{
@@ -226,6 +273,11 @@ export function ModernServices() {
       
       {/* Animated Background Elements */}
       <div className="absolute inset-0 opacity-5 z-0">
+=======
+    <section className="py-24 px-6 md:px-12 bg-neutral-900 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+>>>>>>> origin/main
         {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
@@ -292,14 +344,21 @@ export function ModernServices() {
           viewport={{ once: true }}
         >
           {services.map((service, index) => (
+<<<<<<< HEAD
             <ServiceCard key={index} service={service} />
+=======
+            <ServiceCard key={index} service={service} index={index} />
+>>>>>>> origin/main
           ))}
         </motion.div>
       </div>
     </section>
   );
 }
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

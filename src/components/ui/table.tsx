@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿"use client";
+=======
+"use client";
+>>>>>>> origin/main
 
 import * as React from "react";
 
@@ -114,7 +118,10 @@ export {
   TableCell,
   TableCaption,
 };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main

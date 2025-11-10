@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ﻿import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+=======
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot@1.1.2";
+import { cva, type VariantProps } from "class-variance-authority@0.7.1";
+>>>>>>> origin/main
 
 import { cn } from "./utils";
 
@@ -56,7 +62,10 @@ function Button({
 }
 
 export { Button, buttonVariants };
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/main
