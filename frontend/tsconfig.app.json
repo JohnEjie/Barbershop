@@ -7,7 +7,6 @@
     "module": "ESNext",
     "types": ["vite/client"],
     "skipLibCheck": true,
-    
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -16,10 +15,6 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
-
-    /* Compatibility fixes */
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
 
     /* Linting */
     "strict": true,
