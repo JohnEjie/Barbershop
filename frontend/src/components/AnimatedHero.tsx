@@ -1,6 +1,6 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Scissors, Instagram, Twitter, Facebook } from 'lucide-react';
+import { Scissors, Instagram, Facebook } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 interface AnimatedHeroProps {
@@ -11,10 +11,10 @@ interface AnimatedHeroProps {
 
 export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHeroProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+  
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-
+  
   const springConfig = { damping: 25, stiffness: 150 };
   const x = useSpring(mouseX, springConfig);
   const y = useSpring(mouseY, springConfig);
@@ -30,33 +30,38 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
+  // Parallax transforms
   const xParallax = useTransform(x, [-0.5, 0.5], [-20, 20]);
   const yParallax = useTransform(y, [-0.5, 0.5], [-20, 20]);
 
-  const defaultBg =
-    'https://images.unsplash.com/photo-1621747650384-6e944e454a54?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470';
+  const defaultBg = "https://images.unsplash.com/photo-1667539916671-b9e7039ccee5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXJiZXJzaG9wJTIwaW50ZXJpb3J8ZW58MXx8fHwxNzYyNDcxNTM3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
 
   return (
     <div className="relative h-screen overflow-hidden">
-      {/* Subtle background pattern animation */}
+      {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <motion.div
           className="absolute inset-0"
           style={{
-            backgroundImage:
-              'repeating-linear-gradient(45deg, #fff 0px, #fff 2px, transparent 2px, transparent 10px)',
+            backgroundImage: 'repeating-linear-gradient(45deg, #fff 0px, #fff 2px, transparent 2px, transparent 10px)',
           }}
-          animate={{ backgroundPosition: ['0px 0px', '100px 100px'] }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          animate={{
+            backgroundPosition: ['0px 0px', '100px 100px'],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
         />
       </div>
 
-      {/* Background with parallax */}
-      <motion.div
+      {/* Background Image with Parallax Effect */}
+      <motion.div 
         className="absolute inset-0"
         initial={{ scale: 1.2, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.5, ease: 'easeOut' }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
         style={{ x: xParallax, y: yParallax }}
       >
         <ImageWithFallback
@@ -65,8 +70,8 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
-
-        {/* Dynamic glow following mouse */}
+        
+        {/* Animated Gradient Overlay */}
         <motion.div
           className="absolute inset-0 opacity-30"
           style={{
@@ -79,7 +84,7 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
         />
       </motion.div>
 
-      {/* Floating golden particles */}
+      {/* Floating Particles */}
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
@@ -100,10 +105,10 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
         />
       ))}
 
-      {/* Main Content */}
+      {/* Content */}
       <div className="relative z-10 h-full flex flex-col">
-        {/* Navbar */}
-        <motion.nav
+        {/* Navigation */}
+        <motion.nav 
           className="flex items-center justify-between px-6 md:px-12 py-6"
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -111,7 +116,7 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
         >
           <div className="flex items-center gap-3">
             {logo ? (
-              <motion.img
+              <motion.img 
                 src={logo}
                 alt="Logo"
                 className="h-12 w-auto"
@@ -119,16 +124,22 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
                 transition={{ duration: 0.6 }}
               />
             ) : (
-              <motion.div whileHover={{ rotate: 360, scale: 1.1 }} transition={{ duration: 0.6 }}>
+              <motion.div
+                whileHover={{ rotate: 360, scale: 1.1 }}
+                transition={{ duration: 0.6 }}
+              >
                 <Scissors className="w-8 h-8 text-amber-500" />
               </motion.div>
             )}
             <span className="text-2xl tracking-wider">ELITE CUTS</span>
           </div>
-
           <div className="flex gap-4">
-            {[Instagram, Twitter, Facebook].map((Icon, i) => (
-              <motion.div key={i} whileHover={{ y: -5, scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+            {[Instagram, Facebook].map((Icon, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -5, scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+              >
                 <Icon className="w-6 h-6 cursor-pointer hover:text-amber-500 transition-colors" />
               </motion.div>
             ))}
@@ -138,73 +149,95 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
         {/* Hero Text */}
         <div className="flex-1 flex items-center justify-center px-6">
           <div className="text-center max-w-4xl">
-            {/* Title */}
+            {/* Animated Title with Letter Animation */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
-  <h1 className="text-6xl md:text-8xl mb-6 tracking-tight overflow-hidden leading-tight">
-  {/* First Line - GUPITAN NG */}
-  <div className="block">
-    {"GUPITAN NG".split('').map((letter, i) => (
-      <motion.span
-        key={`gupit-${i}`}
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.8 + i * 0.1, duration: 0.5 }}
-        className="inline-block"
-      >
-        {letter === ' ' ? '\u00A0' : letter}
-      </motion.span>
-    ))}
-  </div>
-
-  {/* Second Line - MGA POGI with gradient */}
-  <div className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 bg-[length:200%_100%]">
-    {"MGA POGI".split('').map((letter, i) => (
-      <motion.span
-        key={`pogi-${i}`}
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 1.5 + i * 0.1, duration: 0.5 }}
-        className="inline-block"
-        whileHover={{ y: -10, scale: 1.2 }}
-      >
-        {letter === ' ' ? '\u00A0' : letter}
-      </motion.span>
-    ))}
-  </div>
-</h1>
-
-
+              <h1 className="text-6xl md:text-8xl mb-6 tracking-tight overflow-hidden">
+                {'PAGUPITAN NG'.split('').map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.8 + i * 0.1, duration: 0.5 }}
+                    className="inline-block"
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 bg-[length:200%_100%]">
+                  <motion.span
+                    className="inline-block"
+                    animate={{
+                      backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: 'linear',
+                    }}
+                    style={{
+                      backgroundImage: 'linear-gradient(to right, #f59e0b, #eab308, #f59e0b)',
+                      backgroundSize: '200% 100%',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                    }}
+                  >
+                    {'MGA POGI'.split('').map((letter, i) => (
+                      <motion.span
+                        key={i}
+                        initial={{ y: 100, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 1.2 + i * 0.1, duration: 0.5 }}
+                        className="inline-block"
+                        whileHover={{ y: -10, scale: 1.2 }}
+                      >
+                        {letter}
+                      </motion.span>
+                    ))}
+                  </motion.span>
+                </span>
+              </h1>
             </motion.div>
-
-            {/* Subtitle */}
+            
             <motion.p
               className="text-xl md:text-2xl mb-12 text-neutral-300"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.6, duration: 0.8 }}
             >
-              <motion.span animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity }}>
+              <motion.span
+                className="inline-block"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
                 Gupit Pogi
               </motion.span>
-              {' â€¢ '}
-              <motion.span animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 2, repeat: Infinity }}>
+             {' \u2022 '}
+              <motion.span
+                className="inline-block"
+                animate={{ opacity: [1, 0.5, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
                 Gupit Matapang
               </motion.span>
             </motion.p>
 
-            {/* Button */}
+            {/* 3D Button Effect */}
             <motion.button
               onClick={onBookClick}
               className="px-12 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black uppercase tracking-widest relative overflow-hidden group"
               initial={{ opacity: 0, scale: 0.8, rotateX: -90 }}
               animate={{ opacity: 1, scale: 1, rotateX: 0 }}
               transition={{ delay: 2, duration: 0.8, type: 'spring' }}
-              whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(245, 158, 11, 0.4)' }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: '0 20px 40px rgba(245, 158, 11, 0.4)',
+              }}
               whileTap={{ scale: 0.95 }}
+              style={{ perspective: 1000 }}
             >
               <span className="relative z-10">Book Now</span>
               <motion.div
@@ -213,6 +246,8 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
                 whileHover={{ x: 0 }}
                 transition={{ duration: 0.3 }}
               />
+              
+              {/* Shine effect */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                 animate={{ x: ['-200%', '200%'] }}
@@ -227,21 +262,21 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
           className="absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{
+          transition={{ 
             opacity: { delay: 2.5 },
-            y: { repeat: Infinity, duration: 1.5 },
+            y: { repeat: Infinity, duration: 1.5 }
           }}
           whileHover={{ scale: 1.2 }}
         >
           <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-2 relative overflow-hidden">
-            <motion.div
+            <motion.div 
               className="w-1 h-2 bg-white rounded-full"
               animate={{ y: [0, 12, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
             />
             <motion.div
               className="absolute inset-0 border-2 border-amber-500 rounded-full"
-              animate={{
+              animate={{ 
                 scale: [1, 1.5, 1],
                 opacity: [1, 0, 1],
               }}
@@ -253,7 +288,3 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
     </div>
   );
 }
-
-
-
-
