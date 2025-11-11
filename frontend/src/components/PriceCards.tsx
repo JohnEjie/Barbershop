@@ -163,10 +163,10 @@ function PriceCard({ pkg, index, onBookClick }: { pkg: typeof packages[0]; index
         <div className="flex items-baseline justify-center gap-1 relative">
           {/* âœ… Changed $ to â‚± */}
           <motion.span
-            className="text-xl text-neutral-400"
+            className="text-4xl text-neutral-400"
             animate={isHovered ? { y: -5 } : { y: 0 }}
           >
-            â‚±
+             ₱
           </motion.span>
           <motion.span
             className="text-6xl relative"

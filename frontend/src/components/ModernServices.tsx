@@ -7,7 +7,7 @@ const services = [
   {
     icon: Scissors,
     title: 'GUPIT POGI',
-    price: 'â‚±200',
+    price: '200',
     description: 'Classic cuts and trendy fades',
     features: ['Standard Cuts', 'Fades & Undercuts', 'Hair Designs', 'Long Hair Maintenance'],
     popular: true,
@@ -15,21 +15,21 @@ const services = [
   {
     icon: Sparkles,
     title: 'HAIR COLORING',
-    price: 'â‚±500',
+    price: '500',
     description: 'Full color and gray blending',
     features: ['Full Hair Coloring', 'Gray Blending', 'Root Touch-ups', 'Bleaching'],
   },
   {
     icon: Droplet,
     title: 'BEARD GROOMING & SHAVE',
-    price: 'â‚±150',
+    price: '150',
     description: 'Facial hair styling and care',
     features: ['Beard Shaping', 'Hot Towel Treatment', 'Conditioning', 'Oil Application'],
   },
   {
     icon: Crown,
     title: 'FULL PACKAGE',
-    price: 'â‚±800',
+    price: '800',
     description: 'Complete grooming experience',
     features: ['Haircut + Beard', 'Hair Coloring', 'Face Mask', 'Head Massage'],
   },
@@ -180,7 +180,7 @@ function ServiceCard({ service }: { service: typeof services[0] }) {
         transition={{ duration: 0.3 }}
         style={{ transformStyle: 'preserve-3d', transform: 'translateZ(30px)' }}
       >
-        {service.price}
+        {'\u20B1'}{service.price.replace('₱', '')}
       </motion.div>
       
       <p className="text-neutral-400 text-center mb-6 text-sm">{service.description}</p>
