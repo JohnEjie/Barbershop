@@ -58,48 +58,48 @@ export function CustomerDashboard({ user, onLogout }: CustomerDashboardProps) {
           animate={{ opacity: 1, y: 0 }}
         >
           {/* Header title and buttons */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6 mb-8 flex-wrap">
-            <div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl mb-2 text-center sm:text-left">
-                Welcome, <span className="text-amber-500">{user.first_name}</span>
-              </h1>
-              <p className="text-neutral-400 text-center sm:text-left">
-                Manage your appointments
-              </p>
-            </div>
+         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8 w-full">
+  {/* Title */}
+  <div className="flex-1 text-center sm:text-left">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl mb-2">
+      Welcome, <span className="text-amber-500">{user.first_name}</span>
+    </h1>
+    <p className="text-neutral-400">Manage your appointments</p>
+  </div>
 
-            {/* Buttons */}
-            <div className="flex flex-wrap justify-center sm:justify-end gap-3">
-              <motion.button
-                onClick={() => setShowBookingModal(true)}
-                className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-black tracking-wider rounded text-sm sm:text-base"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                BOOK NEW
-              </motion.button>
+  {/* Buttons – mobile-friendly */}
+  <div className="flex flex-wrap justify-center sm:justify-end gap-3 w-full sm:w-auto">
+    <motion.button
+      onClick={() => setShowBookingModal(true)}
+      className="flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-semibold rounded text-sm sm:text-base w-full sm:w-auto"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      BOOK NEW
+    </motion.button>
 
-              <motion.button
-                onClick={handleGoHome}
-                className="px-4 sm:px-6 py-2 sm:py-3 border border-white/20 hover:border-blue-500 flex items-center gap-2 rounded text-sm sm:text-base"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Home className="w-5 h-5 text-blue-400" />
-                HOME
-              </motion.button>
+    <motion.button
+      onClick={handleGoHome}
+      className="flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 border border-white/20 hover:border-blue-500 rounded text-sm sm:text-base w-full sm:w-auto"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Home className="w-5 h-5 text-blue-400" />
+      <span className="ml-2">HOME</span>
+    </motion.button>
 
-              <motion.button
-                onClick={onLogout}
-                className="px-4 sm:px-6 py-2 sm:py-3 border border-white/20 hover:border-red-500 flex items-center gap-2 rounded text-sm sm:text-base"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <LogOut className="w-5 h-5 text-red-400" />
-                LOGOUT
-              </motion.button>
-            </div>
-          </div>
+    <motion.button
+      onClick={onLogout}
+      className="flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 border border-white/20 hover:border-red-500 rounded text-sm sm:text-base w-full sm:w-auto"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <LogOut className="w-5 h-5 text-red-400" />
+      <span className="ml-2">LOGOUT</span>
+    </motion.button>
+  </div>
+</div>
+
 
           {/* Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
