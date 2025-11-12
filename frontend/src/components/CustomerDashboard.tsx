@@ -47,10 +47,11 @@ export function CustomerDashboard({ user, onLogout }: CustomerDashboardProps) {
     window.location.href = "/";
   };
 
-  return (
-    <div className="min-h-screen bg-black text-white py-20 px-4 sm:px-6 md:px-8 overflow-x-hidden">
-      <div className="max-w-7xl mx-auto w-full">
-        {/* Header */}
+ return (
+  <div className="min-h-screen bg-black text-white py-24 px-4 sm:px-6 md:px-10">
+    <div className="max-w-7xl mx-auto w-full overflow-x-hidden">
+      {/* HEADER */}
+
         <motion.div
           className="mb-10 sm:mb-12"
           initial={{ opacity: 0, y: -20 }}
