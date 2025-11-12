@@ -35,7 +35,7 @@ export function AnimatedHero({ onBookClick, backgroundImage, logo }: AnimatedHer
   const yParallax = useTransform(y, [-0.5, 0.5], [-20, 20]);
 
   const defaultBg =
-    'https://images.unsplash.com/photo-1667539916671-b9e7039ccee5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXJiZXJzaG9wJTIwaW50ZXJpb3J8ZW58MXx8fHwxNzYyNDcxNTM3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral';
+    'https://plus.unsplash.com/premium_photo-1661542322251-db8b9bdf8e30?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470';
 
   return (
     <div className="relative h-screen overflow-hidden">
