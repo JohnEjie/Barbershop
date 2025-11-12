@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, User as UserIcon, LogOut, Home, User } from "lucide-react";
+import { Calendar, Clock, User as UserIcon } from "lucide-react";
 import { api, type User as UserType, type Appointment } from "../services/api";
 import { AppointmentCard } from "./AppointmentCard";
 import { BookingModal } from "./BookingModal";
@@ -12,7 +12,7 @@ interface CustomerDashboardProps {
   reload?: boolean;
 }
 
-export function CustomerDashboard({ user, onLogout }: CustomerDashboardProps) {
+export function CustomerDashboard({ user }: CustomerDashboardProps) {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<"all" | "pending" | "completed" | "cancelled">("all");
@@ -43,53 +43,9 @@ export function CustomerDashboard({ user, onLogout }: CustomerDashboardProps) {
     completed: appointments.filter((a) => a.status === "completed").length,
   };
 
-  const handleGoHome = () => {
-    window.location.href = "/";
-  };
-
   return (
     <div className="min-h-screen bg-black text-white py-24 px-4 sm:px-6 md:px-10">
       <div className="max-w-7xl mx-auto w-full overflow-x-hidden">
-
-        {/* HEADER */}
-        <motion.header
-          className="bg-[#181818] text-white px-4 sm:px-8 py-3 flex flex-wrap items-center justify-between rounded-2xl shadow-md mb-10 sm:mb-12 sticky top-0 z-30"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          {/* Left section – logo + user info */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-            <h1 className="text-lg sm:text-xl font-bold text-amber-500">Barbershop</h1>
-            <div className="flex items-center gap-1 text-sm">
-              <User className="w-4 h-4" />
-              <span className="truncate max-w-[80px] sm:max-w-none">{user.username}</span>
-              <span className="text-amber-400 text-xs">(customer)</span>
-            </div>
-          </div>
-
-          {/* Right section – buttons */}
-          <div className="flex flex-wrap justify-center sm:justify-end gap-2 mt-2 sm:mt-0 w-full sm:w-auto">
-            <motion.button
-              onClick={handleGoHome}
-              className="flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-black font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-sm sm:text-base w-full sm:w-auto"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Home className="w-4 h-4" />
-              Home
-            </motion.button>
-
-            <motion.button
-              onClick={onLogout}
-              className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-sm sm:text-base w-full sm:w-auto"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <LogOut className="w-4 h-4" />
-              Logout
-            </motion.button>
-          </div>
-        </motion.header>
 
         {/* MAIN CONTENT */}
         <motion.section
