@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, User as UserIcon, LogOut, Home } from "lucide-react";
-import { api, type User, type Appointment } from "../services/api";
+import { Calendar, Clock, User as UserIcon, LogOut, Home, User } from "lucide-react";
+import { api, type User as UserType, type Appointment } from "../services/api";
 import { AppointmentCard } from "./AppointmentCard";
 import { BookingModal } from "./BookingModal";
 import { toast } from "sonner";
 
 interface CustomerDashboardProps {
-  user: User;
+  user: UserType;
   onLogout: () => void;
   reload?: boolean;
 }
@@ -26,7 +26,7 @@ export function CustomerDashboard({ user, onLogout }: CustomerDashboardProps) {
     try {
       const data = await api.getMyAppointments();
       setAppointments(data);
-    } catch (error: any) {
+    } catch {
       toast.error("Failed to load appointments");
     } finally {
       setLoading(false);
@@ -47,59 +47,74 @@ export function CustomerDashboard({ user, onLogout }: CustomerDashboardProps) {
     window.location.href = "/";
   };
 
- return (
-  <div className="min-h-screen bg-black text-white py-24 px-4 sm:px-6 md:px-10">
-    <div className="max-w-7xl mx-auto w-full overflow-x-hidden">
-      {/* HEADER */}
+  return (
+    <div className="min-h-screen bg-black text-white py-24 px-4 sm:px-6 md:px-10">
+      <div className="max-w-7xl mx-auto w-full overflow-x-hidden">
 
-        <motion.div
+        {/* HEADER */}
+        <motion.header
+          className="bg-[#181818] text-white px-4 sm:px-8 py-3 flex flex-wrap items-center justify-between rounded-2xl shadow-md mb-10 sm:mb-12 sticky top-0 z-30"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          {/* Left section – logo + user info */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <h1 className="text-lg sm:text-xl font-bold text-amber-500">Barbershop</h1>
+            <div className="flex items-center gap-1 text-sm">
+              <User className="w-4 h-4" />
+              <span className="truncate max-w-[80px] sm:max-w-none">{user.username}</span>
+              <span className="text-amber-400 text-xs">(customer)</span>
+            </div>
+          </div>
+
+          {/* Right section – buttons */}
+          <div className="flex flex-wrap justify-center sm:justify-end gap-2 mt-2 sm:mt-0 w-full sm:w-auto">
+            <motion.button
+              onClick={handleGoHome}
+              className="flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-black font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-sm sm:text-base w-full sm:w-auto"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Home className="w-4 h-4" />
+              Home
+            </motion.button>
+
+            <motion.button
+              onClick={onLogout}
+              className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-sm sm:text-base w-full sm:w-auto"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <LogOut className="w-4 h-4" />
+              Logout
+            </motion.button>
+          </div>
+        </motion.header>
+
+        {/* MAIN CONTENT */}
+        <motion.section
           className="mb-10 sm:mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          {/* Header title and buttons */}
-         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8 w-full">
-  {/* Title */}
-  <div className="flex-1 text-center sm:text-left">
-    <h1 className="text-3xl sm:text-4xl md:text-5xl mb-2">
-      Welcome, <span className="text-amber-500">{user.first_name}</span>
-    </h1>
-    <p className="text-neutral-400">Manage your appointments</p>
-  </div>
+          {/* Greeting + Booking Button */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8 w-full">
+            <div className="flex-1 text-center sm:text-left">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl mb-2">
+                Welcome, <span className="text-amber-500">{user.first_name}</span>
+              </h1>
+              <p className="text-neutral-400">Manage your appointments</p>
+            </div>
 
-  {/* Buttons – mobile-friendly */}
-  <div className="flex flex-wrap justify-center sm:justify-end gap-3 w-full sm:w-auto">
-    <motion.button
-      onClick={() => setShowBookingModal(true)}
-      className="flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-semibold rounded text-sm sm:text-base w-full sm:w-auto"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      BOOK NEW
-    </motion.button>
-
-    <motion.button
-      onClick={handleGoHome}
-      className="flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 border border-white/20 hover:border-blue-500 rounded text-sm sm:text-base w-full sm:w-auto"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      <Home className="w-5 h-5 text-blue-400" />
-      <span className="ml-2">HOME</span>
-    </motion.button>
-
-    <motion.button
-      onClick={onLogout}
-      className="flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 border border-white/20 hover:border-red-500 rounded text-sm sm:text-base w-full sm:w-auto"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      <LogOut className="w-5 h-5 text-red-400" />
-      <span className="ml-2">LOGOUT</span>
-    </motion.button>
-  </div>
-</div>
-
+            <motion.button
+              onClick={() => setShowBookingModal(true)}
+              className="flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-semibold rounded text-sm sm:text-base w-full sm:w-auto"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              BOOK NEW
+            </motion.button>
+          </div>
 
           {/* Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -126,9 +141,7 @@ export function CustomerDashboard({ user, onLogout }: CustomerDashboardProps) {
                 <Clock className="w-8 sm:w-10 h-8 sm:h-10 text-yellow-500" />
                 <div>
                   <div className="text-2xl sm:text-3xl">{stats.pending}</div>
-                  <div className="text-xs sm:text-sm text-neutral-400">
-                    Pending
-                  </div>
+                  <div className="text-xs sm:text-sm text-neutral-400">Pending</div>
                 </div>
               </div>
             </motion.div>
@@ -141,22 +154,20 @@ export function CustomerDashboard({ user, onLogout }: CustomerDashboardProps) {
                 <UserIcon className="w-8 sm:w-10 h-8 sm:h-10 text-green-500" />
                 <div>
                   <div className="text-2xl sm:text-3xl">{stats.completed}</div>
-                  <div className="text-xs sm:text-sm text-neutral-400">
-                    Completed
-                  </div>
+                  <div className="text-xs sm:text-sm text-neutral-400">Completed</div>
                 </div>
               </div>
             </motion.div>
           </div>
-        </motion.div>
+        </motion.section>
 
-        {/* Filter Tabs */}
+        {/* FILTER BUTTONS */}
         <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
           {(["all", "pending", "completed", "cancelled"] as const).map((status) => (
             <motion.button
               key={status}
               onClick={() => setFilter(status)}
-              className={`px-4 sm:px-6 py-2 uppercase tracking-wider text-xs sm:text-sm whitespace-nowrap rounded ${
+              className={`px-4 sm:px-6 py-2 uppercase tracking-wider text-xs sm:text-sm whitespace-nowrap rounded transition-all ${
                 filter === status
                   ? "bg-amber-500 text-black"
                   : "bg-neutral-900 border border-white/10 hover:border-amber-500"
@@ -169,7 +180,7 @@ export function CustomerDashboard({ user, onLogout }: CustomerDashboardProps) {
           ))}
         </div>
 
-        {/* Appointments List */}
+        {/* APPOINTMENT LIST */}
         {loading ? (
           <div className="text-center py-12">
             <div className="inline-block w-10 h-10 sm:w-12 sm:h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin" />
@@ -194,7 +205,7 @@ export function CustomerDashboard({ user, onLogout }: CustomerDashboardProps) {
         )}
       </div>
 
-      {/* Booking Modal */}
+      {/* BOOKING MODAL */}
       {showBookingModal && (
         <BookingModal
           onClose={() => setShowBookingModal(false)}
