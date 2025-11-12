@@ -97,40 +97,73 @@ export default function App() {
     );
   }
 
-  // If user is logged in and not viewing landing, show dashboard
+// If user is logged in and not viewing landing, show dashboard
   if (user) {
     return (
       <div className="min-h-screen bg-black">
         <Toaster position="top-right" />
         
-        {/* Header */}
+        {/* Header - Mobile Optimized for iPhone XR */}
         <header className="bg-zinc-900 border-b border-zinc-800 sticky top-0 z-50">
-          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-amber-500">Barbershop</h1>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 text-white">
-                <UserIcon className="w-5 h-5" />
-                <span>{user.username}</span>
-                <span className="text-amber-500 text-sm">({user.role})</span>
+          <div className="px-3 sm:px-4 py-2 sm:py-4">
+            {/* Mobile Layout - iPhone XR */}
+            <div className="flex flex-col gap-2 md:hidden">
+              {/* Row 1: Logo + User Info */}
+              <div className="flex items-center justify-between">
+                <h1 className="text-lg font-bold text-amber-500">Barbershop</h1>
+                <div className="flex items-center gap-1 text-white text-xs">
+                  <UserIcon className="w-3 h-3" />
+                  <span className="truncate max-w-[80px]">{user.username}</span>
+                  <span className="text-amber-500 text-[10px]">({user.role})</span>
+                </div>
               </div>
+              
+              {/* Row 2: Buttons - Equal Width */}
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={handleGoHome}
+                  className="flex items-center justify-center gap-1 px-2 py-2 bg-amber-500 active:bg-amber-600 text-black rounded text-xs font-semibold"
+                >
+                  <HomeIcon className="w-3 h-3" />
+                  Home
+                </button>
 
-              {/* Home Button */}
-              <button
-                onClick={handleGoHome}
-                className="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-black rounded-lg transition-colors"
-              >
-                <HomeIcon className="w-4 h-4" />
-                Home
-              </button>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center justify-center gap-1 px-2 py-2 bg-red-600 active:bg-red-700 text-white rounded text-xs font-semibold"
+                >
+                  <LogOut className="w-3 h-3" />
+                  Logout
+                </button>
+              </div>
+            </div>
 
-              {/* Logout Button */}
-              <button
-                onClick={handleLogout}
-                className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
-              >
-                <LogOut className="w-4 h-4" />
-                Logout
-              </button>
+            {/* Desktop Layout */}
+            <div className="hidden md:flex items-center justify-between">
+              <h1 className="text-2xl font-bold text-amber-500">Barbershop</h1>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 text-white">
+                  <UserIcon className="w-5 h-5" />
+                  <span>{user.username}</span>
+                  <span className="text-amber-500 text-sm">({user.role})</span>
+                </div>
+
+                <button
+                  onClick={handleGoHome}
+                  className="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-black rounded-lg transition-colors"
+                >
+                  <HomeIcon className="w-4 h-4" />
+                  Home
+                </button>
+
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+                >
+                  <LogOut className="w-4 h-4" />
+                  Logout
+                </button>
+              </div>
             </div>
           </div>
         </header>
@@ -146,7 +179,6 @@ export default function App() {
       </div>
     );
   }
-
   // Default landing page (when no user)
   return (
     <div className="min-h-screen bg-black">
