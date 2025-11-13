@@ -1,39 +1,21 @@
-from django.contrib.auth.models import AbstractUser, BaseUserManager
-from django.db import models
+from django.core.management.base import BaseCommand
+from django.contrib.auth import get_user_model
 
-class CustomUserManager(BaseUserManager):
-    def create_user(self, username, email=None, password=None, **extra_fields):
-        if not username:
-            raise ValueError('The Username field is required')
-        email = self.normalize_email(email)
-        user = self.model(username=username, email=email, **extra_fields)
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
+class Command(BaseCommand):
+    help = "Create a default admin user if it doesn't exist"
 
-    def create_superuser(self, username, email=None, password=None, **extra_fields):
-        extra_fields.setdefault('is_staff', True)
-        extra_fields.setdefault('is_superuser', True)
-        extra_fields.setdefault('role', 'admin')
+    def handle(self, *args, **options):
+        User = get_user_model()
+        admin_username = "admin"
+        admin_email = "admin@example.com"
+        admin_password = "admin123"
 
-        if extra_fields.get('is_staff') is not True:
-            raise ValueError('Superuser must have is_staff=True.')
-        if extra_fields.get('is_superuser') is not True:
-            raise ValueError('Superuser must have is_superuser=True.')
-
-        return self.create_user(username, email, password, **extra_fields)
-
-
-class CustomUser(AbstractUser):
-    ROLE_CHOICES = [
-        ('admin', 'Admin'),
-        ('barber', 'Barber'),
-        ('customer', 'Customer'),
-    ]
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='customer')
-    phone_number = models.CharField(max_length=15, blank=True, null=True)
-
-    objects = CustomUserManager()
-
-    def __str__(self):
-        return f"{self.username} ({self.role})"
+        if not User.objects.filter(username=admin_username).exists():
+            User.objects.create_superuser(
+                username=admin_username,
+                email=admin_email,
+                password=admin_password
+            )
+            self.stdout.write(self.style.SUCCESS("✅ Admin user created successfully!"))
+        else:
+            self.stdout.write(self.style.WARNING("⚠️ Admin user already exists."))
